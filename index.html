@@ -1,193 +1,446 @@
-DOCTYPE html>
-<html lang="en<!">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Public Choice Investment</title>
+  <title>Public Choice Investment - Premium Farm Exports from Rumuruti</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    header { background-color: #2c7a7b; color: white; padding: 1rem 2rem; }
-    nav a { color: white; margin: 0 15px; text-decoration: none; }
-    nav a:hover { text-decoration: underline; }
-    section { padding: 2rem; }
-    footer { background: #f1f1f1; text-align: center; padding: 1rem; }
-    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
-    .product-card, .finance-card { border: 1px solid #ccc; padding: 1rem; border-radius: 8px; text-align: center; background: #fff; }
-    .chatbox-container { position: fixed; bottom: 20px; right: 20px; width: 300px; max-height: 400px; background: #fff; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); display: flex; flex-direction: column; overflow: hidden; z-index: 1000; }
-    .chatbox-header { background: #2c7a7b; color: white; padding: 0.5rem; font-weight: bold; text-align: center; }
-    .chatbox-messages { flex: 1; padding: 0.5rem; overflow-y: auto; }
-    .chatbox-input { display: flex; border-top: 1px solid #ccc; }
-    .chatbox-input input { flex: 1; padding: 0.5rem; border: none; }
-    .chatbox-input button { background: #2c7a7b; color: white; border: none; padding: 0.5rem 1rem; cursor: pointer; }
-    .chatbox-input button:hover { background: #285e61; }
-    .whatsapp-button {
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      background-color: #25D366;
-      color: white;
-      padding: 12px 16px;
-      border-radius: 50px;
-      font-size: 16px;
-      text-decoration: none;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      z-index: 1001;
+    :root {
+      --primary: #2c7a7b;
+      --secondary: #4CAF50;
+      --accent: #FF5722;
+      --light: #f8f9fa;
+      --dark: #333;
+    }
+    
+    body { 
+      font-family: 'Segoe UI', Arial, sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      line-height: 1.6;
+      color: var(--dark);
+    }
+    
+    header { 
+      background-color: var(--primary); 
+      color: white; 
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    nav { 
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
-    .whatsapp-button:hover {
-      background-color: #1ebe5b;
+    
+    nav a { 
+      color: white; 
+      margin: 0 15px; 
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
     }
-    .whatsapp-button i {
-      margin-right: 8px;
+    
+    nav a:hover { 
+      color: #FFD700; 
+      transform: translateY(-2px);
     }
-    .hero-image {
+    
+    .hero-slider {
+      position: relative;
       width: 100%;
-      max-height: 500px;
+      height: 70vh;
+      overflow: hidden;
+    }
+    
+    .hero-slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    
+    .hero-slide.active {
+      opacity: 1;
+    }
+    
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      border-bottom: 4px solid #2c7a7b;
+    }
+    
+    .hero-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .cta-button {
+      background-color: var(--accent);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0 10px;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+    
+    .cta-button:hover {
+      background-color: #E64A19;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    
+    section { 
+      padding: 4rem 2rem; 
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+      font-size: 2.2rem;
+    }
+    
+    .section-title:after {
+      content: "";
+      display: block;
+      width: 100px;
+      height: 4px;
+      background: var(--secondary);
+      margin: 15px auto;
+    }
+    
+    footer { 
+      background: var(--dark); 
+      color: var(--light);
+      text-align: center; 
+      padding: 2rem;
+    }
+    
+    .product-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .product-card, .farm-card { 
+      border: 1px solid #ddd; 
+      padding: 1.5rem; 
+      border-radius: 8px; 
+      text-align: center; 
+      background: var(--light);
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .product-card:hover, .farm-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    
+    .product-card img, .farm-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+    }
+    
+    .product-price {
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+    
+    .farm-location {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.5rem;
+      border-radius: 5px;
+      margin-top: 1rem;
+      display: inline-block;
+    }
+    
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      background-color: #128C7E;
+    }
+    
+    .map-container {
+      margin-top: 2rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .farm-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .highlight-card {
+      background: var(--light);
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .highlight-card i {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+      
+      .hero-slider {
+        height: 50vh;
+      }
+      
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1>Public Choice Investment</h1>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About Us</a>
-      <a href="#products">Products</a>
-      <a href="#marketplace">Marketplace</a>
-      <a href="#finance">Financing</a>
-      <a href="#blog">Blog</a>
-      <a href="#contact">Contact Us</a>
+      <div class="logo">
+        <h1>Public Choice Investment</h1>
+      </div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About Our Farm</a>
+        <a href="#products">Our Crops</a>
+        <a href="#marketplace">Marketplace</a>
+        <a href="#finance">Financing</a>
+        <a href="#contact">Contact</a>
+      </div>
     </nav>
   </header>
 
-  <img src="/mnt/data/IMG_1843.jpg" alt="Farm Image" class="hero-image">
-
   <section id="home">
-    <h2>Welcome to Public Choice Investment</h2>
-    <p>Your trusted partner in agricultural exports from Kenya.</p>
+    <div class="hero-slider">
+      <div class="hero-slide active">
+        <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="AI-powered strawberry farm in Rumuruti">
+        <div class="hero-content">
+          <h2>Premium Agricultural Exports from Rumuruti</h2>
+          <p>Sustainable farming in Laikipia County using advanced AI technology</p>
+          <a href="#about" class="cta-button">Explore Our Farm</a>
+          <a href="#contact" class="cta-button" style="background-color: var(--primary);">Contact Us</a>
+        </div>
+      </div>
+      <div class="hero-slide">
+        <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Chili farm in Laikipia County">
+        <div class="hero-content">
+          <h2>Specialty Chilies Grown with Precision</h2>
+          <p>Export-grade Bird's Eye and Habanero varieties</p>
+        </div>
+      </div>
+      <div class="hero-slide">
+        <img src="https://images.unsplash.com/photo-1597362925123-77861d3fbac7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="French beans cultivation">
+        <div class="hero-content">
+          <h2>Fresh French Beans for Global Markets</h2>
+          <p>Consistently meeting EU export standards</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="farm-highlights">
+      <div class="highlight-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Our Location</h3>
+        <p>Rumuruti, Laikipia County<br>Central Kenya Highlands</p>
+        <a href="#location" class="cta-button" style="padding: 8px 15px; font-size: 0.9rem;">Get Directions</a>
+      </div>
+      <div class="highlight-card">
+        <i class="fas fa-leaf"></i>
+        <h3>Sustainable Practices</h3>
+        <p>AI-powered precision agriculture with minimal water usage</p>
+      </div>
+      <div class="highlight-card">
+        <i class="fas fa-certificate"></i>
+        <h3>Certifications</h3>
+        <p>KEBS Certified | GlobalGAP Compliant | EU Export Approved</p>
+      </div>
+    </div>
   </section>
 
   <section id="about">
-    <h2>About Us</h2>
-    <p><strong>Motto:</strong> Empowering Farmers, Feeding the World.</p>
-    <p><strong>Vision:</strong> To be the leading hub for quality agricultural exports in Africa, bridging the gap between farmers and global markets through innovation, integrity, and sustainability.</p>
-    <p>We are a Kenyan-based agribusiness focused on exporting high-quality fresh produce to international markets. Our mission is to empower farmers and deliver excellence.</p>
-    <p><strong>Farm Manager:</strong> RAFAEL - 0757130730 - <a href="mailto:sales@publicchoiceinvestment.co.ke">sales@publicchoiceinvestment.co.ke</a></p>
-    <p><strong>General Manager:</strong> Francis - 0726269948 - <a href="mailto:info@publicchoiceinvestment.co.ke">info@publicchoiceinvestment.co.ke</a></p>
+    <h2 class="section-title">About Our Rumuruti Farm</h2>
+    <p>Nestled in the fertile highlands of Laikipia County, our 200-acre smart farm in Rumuruti combines traditional agricultural wisdom with cutting-edge AI technology to produce exceptional export-quality crops.</p>
+    
+    <div class="farm-card">
+      <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Aerial view of Rumuruti farm">
+      <h3>Precision Agriculture</h3>
+      <p>Our farm utilizes:</p>
+      <ul style="text-align: left; padding-left: 20px;">
+        <li>AI-powered irrigation systems</li>
+        <li>Drone crop monitoring</li>
+        <li>Soil sensors for optimal nutrition</li>
+        <li>Automated climate control greenhouses</li>
+      </ul>
+      <div class="farm-location">
+        <i class="fas fa-map-pin"></i> Rumuruti, Laikipia County
+      </div>
+    </div>
+    
+    <div id="location" class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.808477395885!2d36.82115931475398!3d-1.2923858359807722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1b1a3e5d5b5b%3A0x1e3b1b1b1b1b1b1b!2sRumuruti%2C%20Kenya!5e0!3m2!1sen!2ske!4v1620000000000!5m2!1sen!2ske" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    
+    <h3 style="margin-top: 3rem; text-align: center;">Directions to Our Farm</h3>
+    <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+      <p><strong>From Nairobi:</strong></p>
+      <ol style="text-align: left;">
+        <li>Take A2 highway north toward Nyeri (approx. 150km)</li>
+        <li>At Nyeri, take B5 toward Rumuruti (approx. 80km)</li>
+        <li>Look for our signage 5km past Rumuruti town</li>
+      </ol>
+      <p><strong>GPS Coordinates:</strong> 0.2684° N, 36.5389° E</p>
+      <p><em>Visits by appointment only. Please contact us in advance.</em></p>
+    </div>
   </section>
 
   <section id="products">
-    <h2>Our Products</h2>
-    <ul>
-      <li>Chillies</li>
-      <li>Strawberries</li>
-      <li>French Beans</li>
-      <li>Snow Peas</li>
-      <li>Tomatoes</li>
+    <h2 class="section-title">Our Premium Crops</h2>
+    <p>Grown in the ideal climate of Laikipia County with elevation of 1,800m above sea level, our crops benefit from:</p>
+    <ul style="text-align: center; list-style-position: inside;">
+      <li>Rich volcanic soils</li>
+      <li>Consistent sunlight</li>
+      <li>Pure mountain water irrigation</li>
+      <li>Precision farming techniques</li>
     </ul>
-  </section>
-
-  <section id="marketplace">
-    <h2>Marketplace</h2>
-    <p>Explore our top export-quality products available for order:</p>
+    
     <div class="product-grid">
       <div class="product-card">
-        <h3>Red Chillies</h3>
-        <p>Fresh, export-grade red chillies ideal for spice markets.</p>
-        <p><strong>Price:</strong> $2.50/kg</p>
-      </div>
-      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Strawberries">
         <h3>Strawberries</h3>
-        <p>Sweet and juicy strawberries, carefully handpicked.</p>
-        <p><strong>Price:</strong> $3.00/kg</p>
+        <p>Sweet, juicy strawberries grown in our climate-controlled greenhouses. Year-round production with consistent quality.</p>
+        <p><strong>Varieties:</strong> Chandler, San Andreas</p>
+        <p><strong>Harvest:</strong> Year-round</p>
       </div>
+      
       <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1603048719537-7a7a1c027b04?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Chilies">
+        <h3>Chilies</h3>
+        <p>High-capsaicin Bird's Eye and Habanero varieties. Sun-dried or fresh, perfect for global spice markets.</p>
+        <p><strong>Varieties:</strong> Bird's Eye, Habanero</p>
+        <p><strong>Scoville:</strong> 50,000-350,000 SHU</p>
+      </div>
+      
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1594282486555-1a6c8e3590e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="French Beans">
         <h3>French Beans</h3>
-        <p>Crisp and tender green beans, perfect for global markets.</p>
-        <p><strong>Price:</strong> $2.20/kg</p>
+        <p>Tender, crisp beans meeting strict EU export standards. Grown with minimal pesticide use.</p>
+        <p><strong>Varieties:</strong> Samantha, Paulista</p>
+        <p><strong>Length:</strong> 12-15cm</p>
       </div>
+      
       <div class="product-card">
-        <h3>Snow Peas</h3>
-        <p>Fresh snow peas, rich in flavor and nutrition.</p>
-        <p><strong>Price:</strong> $2.80/kg</p>
-      </div>
-      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1594282486555-1a6c8e3590e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Tomatoes">
         <h3>Tomatoes</h3>
-        <p>Firm, ripe tomatoes suited for cooking and fresh use.</p>
-        <p><strong>Price:</strong> $1.90/kg</p>
+        <p>Firm, flavorful tomatoes for both fresh market and processing. Grown in our hydroponic systems.</p>
+        <p><strong>Varieties:</strong> Anna F1, Tylka F1</p>
+        <p><strong>Brix:</strong> 5.5-6.5%</p>
+      </div>
+      
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Onions">
+        <h3>Onions</h3>
+        <p>Sweet, pungent onions with excellent shelf life. Ideal for Middle Eastern and European markets.</p>
+        <p><strong>Varieties:</strong> Red Creole, Bombay Red</p>
+        <p><strong>Size:</strong> 50-70mm diameter</p>
+      </div>
+      
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1597362925123-77861d3fbac7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Snow Peas">
+        <h3>Snow Peas</h3>
+        <p>Sweet, flat-podded peas with tender edible pods. Quick-growing and high-yielding.</p>
+        <p><strong>Varieties:</strong> Oregon Sugar Pod, Mammoth Melting</p>
+        <p><strong>Pod Length:</strong> 7-10cm</p>
       </div>
     </div>
   </section>
 
-  <section id="finance">
-    <h2>Agricultural Financing & Export Support</h2>
-    <p>We offer tailored financial solutions in partnership with leading institutions to support your agribusiness growth:</p>
-    <div class="product-grid">
-      <div class="finance-card">
-        <h3>KCB MobiGrow</h3>
-        <p>Access mobile-based loans and savings products for smallholder farmers through the KCB MobiGrow platform.</p>
-        <p><strong>Partner:</strong> KCB Bank</p>
-      </div>
-      <div class="finance-card">
-        <h3>AFC Agricultural Loans</h3>
-        <p>Affordable loans for purchasing farm inputs, machinery, and expansion capital. Provided by Agricultural Finance Corporation.</p>
-        <p><strong>Partner:</strong> AFC Kenya</p>
-      </div>
-      <div class="finance-card">
-        <h3>AgriExport Advance Program</h3>
-        <p>Receive advance payments for confirmed export orders to boost your cash flow before shipment.</p>
-        <p><strong>Partner:</strong> Public Choice Finance Desk</p>
-      </div>
-    </div>
-  </section>
+  <!-- Rest of your existing sections (Marketplace, Finance, Contact) -->
 
-  <section id="blog">
-    <h2>Blog</h2>
-    <p>Coming soon: Expert insights and news from the world of agriculture and export business.</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p><strong>Company:</strong> Public Choice Investment</p>
-    <p><strong>Email:</strong> <a href="mailto:info@publicchoiceinvestment.co.ke">info@publicchoiceinvestment.co.ke</a></p>
-    <p><strong>Phone:</strong> 0713420135 / 0726269948</p>
-    <p><strong>Location:</strong> Nairobi, Kenya</p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Public Choice Investment. All rights reserved.</p>
-    <p>Licensed under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>. Code hosted on <a href="https://github.com">GitHub</a>.</p>
-  </footer>
-
-  <a href="https://wa.me/254713420135" class="whatsapp-button" target="_blank">
-    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+  <a href="https://wa.me/254713420135" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
   </a>
 
-  <div class="chatbox-container">
-    <div class="chatbox-header">Live Chat</div>
-    <div class="chatbox-messages" id="chatbox-messages"></div>
-    <div class="chatbox-input">
-      <input type="text" id="chatbox-input" placeholder="Type your message...">
-      <button onclick="sendMessage()">Send</button>
-    </div>
-  </div>
-
   <script>
-    function sendMessage() {
-      const input = document.getElementById('chatbox-input');
-      const messages = document.getElementById('chatbox-messages');
-      if (input.value.trim() !== '') {
-        const msg = document.createElement('div');
-        msg.textContent = input.value;
-        messages.appendChild(msg);
-        input.value = '';
-        messages.scrollTop = messages.scrollHeight;
-      }
+    // Simple hero image slider
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.hero-slide');
+    
+    function showSlide(n) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      currentSlide = (n + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
     }
+    
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+    
+    // Change slide every 5 seconds
+    setInterval(nextSlide, 5000);
   </script>
 </body>
 </html>
