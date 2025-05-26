@@ -3,444 +3,341 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Public Choice Investment - Premium Farm Exports from Rumuruti</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- NEW: Kenya-focused SEO title -->
+  <title>Public Choice Investment | Leading Kenyan Exporter of Strawberries & Chilies | Laikipia</title>
+  <!-- NEW: Enhanced meta description -->
+  <meta name="description" content="KEBS-certified exporter of premium strawberries, chilies and French beans from Rumuruti, Kenya. EU-compliant packaging, bulk orders worldwide.">
+  
+  <!-- NEW: OpenGraph tags for social sharing -->
+  <meta property="og:title" content="Public Choice Investment - Premium Kenyan Farm Exports">
+  <meta property="og:description" content="Certified exporter of Kenyan strawberries, chilies and French beans. Direct farm-to-global-market supply.">
+  <meta property="og:image" content="https://publicchoiceinvestment.co.ke/images/og-image.jpg">
+  <meta property="og:url" content="https://publicchoiceinvestment.co.ke">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- NEW: Preload critical resources only -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" as="style">
+  <link rel="preload" href="styles.css" as="style">
+  
+  <!-- NEW: Simplified CSS imports -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- NEW: Critical CSS inlined -->
   <style>
-    :root {
-      --primary: #2c7a7b;
-      --secondary: #4CAF50;
-      --accent: #FF5722;
-      --light: #f8f9fa;
-      --dark: #333;
-    }
-    
-    body { 
-      font-family: 'Segoe UI', Arial, sans-serif; 
-      margin: 0; 
-      padding: 0; 
-      line-height: 1.6;
-      color: var(--dark);
-    }
-    
-    header { 
-      background-color: var(--primary); 
-      color: white; 
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    
-    nav { 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-    
-    nav a { 
-      color: white; 
-      margin: 0 15px; 
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-    
-    nav a:hover { 
-      color: #FFD700; 
-      transform: translateY(-2px);
-    }
-    
-    .hero-slider {
-      position: relative;
-      width: 100%;
-      height: 70vh;
-      overflow: hidden;
-    }
-    
-    .hero-slide {
+    /* Critical above-the-fold styles */
+    header { position: relative; z-index: 1000; }
+    .hero-slide { 
+      display: none;
       position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      opacity: 0;
+      background-size: cover;
+      background-position: center;
       transition: opacity 1s ease-in-out;
     }
+    .hero-slide.active { display: block; }
     
-    .hero-slide.active {
-      opacity: 1;
-    }
-    
-    .hero-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
-    .hero-content {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0, 0, 0, 0.6);
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-    
-    .cta-button {
-      background-color: var(--accent);
-      color: white;
-      padding: 12px 30px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
+    /* NEW: Trust badges styling */
+    .trust-badges img {
+      height: 50px;
+      width: auto;
       margin: 0 10px;
-      display: inline-block;
-      transition: all 0.3s ease;
     }
     
-    .cta-button:hover {
-      background-color: #E64A19;
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-    
-    section { 
-      padding: 4rem 2rem; 
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .section-title {
-      color: var(--primary);
-      text-align: center;
-      margin-bottom: 2rem;
-      position: relative;
-      font-size: 2.2rem;
-    }
-    
-    .section-title:after {
-      content: "";
-      display: block;
-      width: 100px;
-      height: 4px;
-      background: var(--secondary);
-      margin: 15px auto;
-    }
-    
-    footer { 
-      background: var(--dark); 
-      color: var(--light);
-      text-align: center; 
-      padding: 2rem;
-    }
-    
-    .product-grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    
-    .product-card, .farm-card { 
-      border: 1px solid #ddd; 
-      padding: 1.5rem; 
-      border-radius: 8px; 
-      text-align: center; 
-      background: var(--light);
-      transition: all 0.3s ease;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    }
-    
-    .product-card:hover, .farm-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-    }
-    
-    .product-card img, .farm-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 5px;
-      margin-bottom: 1rem;
-      border: 1px solid #ddd;
-    }
-    
-    .product-price {
-      color: var(--accent);
-      font-weight: bold;
-      font-size: 1.2rem;
-      margin: 10px 0;
-    }
-    
-    .farm-location {
-      background-color: var(--primary);
+    /* NEW: Export-specific product tags */
+    .product-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #28a745;
       color: white;
-      padding: 0.5rem;
-      border-radius: 5px;
-      margin-top: 1rem;
-      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-size: 0.8rem;
     }
     
-    .whatsapp-float {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: #25D366;
-      color: white;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      text-align: center;
-      font-size: 30px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-    }
-    
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-      background-color: #128C7E;
-    }
-    
-    .map-container {
-      margin-top: 2rem;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    
-    .farm-highlights {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    
-    .highlight-card {
-      background: var(--light);
-      padding: 1.5rem;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    }
-    
-    .highlight-card i {
-      font-size: 2.5rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-    
+    /* NEW: Mobile optimizations */
     @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      nav a {
-        display: block;
-        margin: 10px 0;
-      }
-      
-      .hero-slider {
-        height: 50vh;
-      }
-      
-      .product-grid {
-        grid-template-columns: 1fr;
-      }
+      #hero { height: 70vh !important; }
+      .display-4 { font-size: 2.2rem; }
+      .btn { min-width: 120px; padding: 12px; }
     }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- NEW: Local business schema markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AgriculturalBusiness",
+    "name": "Public Choice Investment",
+    "image": "https://publicchoiceinvestment.co.ke/images/logo.jpg",
+    "@id": "https://publicchoiceinvestment.co.ke",
+    "url": "https://publicchoiceinvestment.co.ke",
+    "telephone": "+254712345678",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rumuruti",
+      "addressLocality": "Laikipia",
+      "addressRegion": "Kenya",
+      "postalCode": "00618",
+      "addressCountry": "KE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "0.266667",
+      "longitude": "36.533333"
+    }
+  }
+  </script>
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="logo">
-        <h1>Public Choice Investment</h1>
-      </div>
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About Our Farm</a>
-        <a href="#products">Our Crops</a>
-        <a href="#marketplace">Marketplace</a>
-        <a href="#finance">Financing</a>
-        <a href="#contact">Contact</a>
+  <!-- Navigation Bar -->
+  <header class="d-flex justify-content-between align-items-center p-3 bg-light shadow-sm position-sticky top-0">
+    <h1 class="fs-4 m-0">Public Choice Investment</h1>
+    <!-- NEW: Accessible mobile menu -->
+    <button class="menu-toggle d-md-none" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="nav-links d-flex gap-3">
+      <a href="#hero" class="text-dark text-decoration-none">Home</a>
+      <a href="#about" class="text-dark text-decoration-none">About</a>
+      <a href="#products" class="text-dark text-decoration-none">Products</a>
+      <a href="#contact" class="text-dark text-decoration-none">Contact</a>
+      <!-- NEW: Language switcher placeholder -->
+      <div class="language-switcher ms-3">
+        <a href="#" class="small">EN</a> | <a href="#" class="small">FR</a>
       </div>
     </nav>
   </header>
 
-  <section id="home">
-    <div class="hero-slider">
-      <div class="hero-slide active">
-        <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="AI-powered strawberry farm in Rumuruti">
-        <div class="hero-content">
-          <h2>Premium Agricultural Exports from Rumuruti</h2>
-          <p>Sustainable farming in Laikipia County using advanced AI technology</p>
-          <a href="#about" class="cta-button">Explore Our Farm</a>
-          <a href="#contact" class="cta-button" style="background-color: var(--primary);">Contact Us</a>
-        </div>
+  <!-- Hero Section -->
+  <section id="hero" class="position-relative" style="height: 90vh; overflow: hidden;">
+    <div class="hero-slide active" style="background-image: url('images/hero-strawberries.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('images/hero-chilies.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('images/hero-farm.jpg');"></div>
+    
+    <div class="position-absolute top-50 start-50 translate-middle text-center text-white px-3">
+      <h1 class="display-4 fw-bold mb-3">Premium Kenyan Farm Exports</h1>
+      <p class="lead mb-4">KEBS-Certified • EU-Compliant Packaging • Direct from Laikipia</p>
+      
+      <!-- NEW: Trust badges -->
+      <div class="trust-badges d-flex justify-content-center flex-wrap">
+        <img src="images/kebs-logo.png" alt="KEBS Certified" loading="lazy">
+        <img src="images/globalgap.png" alt="GlobalGAP Certified" loading="lazy">
       </div>
-      <div class="hero-slide">
-        <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Chili farm in Laikipia County">
-        <div class="hero-content">
-          <h2>Specialty Chilies Grown with Precision</h2>
-          <p>Export-grade Bird's Eye and Habanero varieties</p>
-        </div>
-      </div>
-      <div class="hero-slide">
-        <img src="https://images.unsplash.com/photo-1597362925123-77861d3fbac7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="French beans cultivation">
-        <div class="hero-content">
-          <h2>Fresh French Beans for Global Markets</h2>
-          <p>Consistently meeting EU export standards</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="farm-highlights">
-      <div class="highlight-card">
-        <i class="fas fa-map-marker-alt"></i>
-        <h3>Our Location</h3>
-        <p>Rumuruti, Laikipia County<br>Central Kenya Highlands</p>
-        <a href="#location" class="cta-button" style="padding: 8px 15px; font-size: 0.9rem;">Get Directions</a>
-      </div>
-      <div class="highlight-card">
-        <i class="fas fa-leaf"></i>
-        <h3>Sustainable Practices</h3>
-        <p>AI-powered precision agriculture with minimal water usage</p>
-      </div>
-      <div class="highlight-card">
-        <i class="fas fa-certificate"></i>
-        <h3>Certifications</h3>
-        <p>KEBS Certified | GlobalGAP Compliant | EU Export Approved</p>
+      
+      <div class="d-flex gap-3 justify-content-center mt-4">
+        <a href="#products" class="btn btn-success px-4 py-2">View Products</a>
+        <a href="#contact" class="btn btn-outline-light px-4 py-2">Contact Us</a>
       </div>
     </div>
   </section>
 
-  <section id="about">
-    <h2 class="section-title">About Our Rumuruti Farm</h2>
-    <p>Nestled in the fertile highlands of Laikipia County, our 200-acre smart farm in Rumuruti combines traditional agricultural wisdom with cutting-edge AI technology to produce exceptional export-quality crops.</p>
-    
-    <div class="farm-card">
-      <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Aerial view of Rumuruti farm">
-      <h3>Precision Agriculture</h3>
-      <p>Our farm utilizes:</p>
-      <ul style="text-align: left; padding-left: 20px;">
-        <li>AI-powered irrigation systems</li>
-        <li>Drone crop monitoring</li>
-        <li>Soil sensors for optimal nutrition</li>
-        <li>Automated climate control greenhouses</li>
-      </ul>
-      <div class="farm-location">
-        <i class="fas fa-map-pin"></i> Rumuruti, Laikipia County
-      </div>
-    </div>
-    
-    <div id="location" class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.808477395885!2d36.82115931475398!3d-1.2923858359807722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1b1a3e5d5b5b%3A0x1e3b1b1b1b1b1b1b!2sRumuruti%2C%20Kenya!5e0!3m2!1sen!2ske!4v1620000000000!5m2!1sen!2ske" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-    
-    <h3 style="margin-top: 3rem; text-align: center;">Directions to Our Farm</h3>
-    <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
-      <p><strong>From Nairobi:</strong></p>
-      <ol style="text-align: left;">
-        <li>Take A2 highway north toward Nyeri (approx. 150km)</li>
-        <li>At Nyeri, take B5 toward Rumuruti (approx. 80km)</li>
-        <li>Look for our signage 5km past Rumuruti town</li>
-      </ol>
-      <p><strong>GPS Coordinates:</strong> 0.2684° N, 36.5389° E</p>
-      <p><em>Visits by appointment only. Please contact us in advance.</em></p>
-    </div>
-  </section>
-
-  <section id="products">
-    <h2 class="section-title">Our Premium Crops</h2>
-    <p>Grown in the ideal climate of Laikipia County with elevation of 1,800m above sea level, our crops benefit from:</p>
-    <ul style="text-align: center; list-style-position: inside;">
-      <li>Rich volcanic soils</li>
-      <li>Consistent sunlight</li>
-      <li>Pure mountain water irrigation</li>
-      <li>Precision farming techniques</li>
-    </ul>
-    
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Strawberries">
-        <h3>Strawberries</h3>
-        <p>Sweet, juicy strawberries grown in our climate-controlled greenhouses. Year-round production with consistent quality.</p>
-        <p><strong>Varieties:</strong> Chandler, San Andreas</p>
-        <p><strong>Harvest:</strong> Year-round</p>
+  <!-- Product Showcase Section -->
+  <section id="products" class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2>Our Export Products</h2>
+        <p class="text-muted">Farm-fresh produce meeting international standards</p>
       </div>
       
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1603048719537-7a7a1c027b04?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Chilies">
-        <h3>Chilies</h3>
-        <p>High-capsaicin Bird's Eye and Habanero varieties. Sun-dried or fresh, perfect for global spice markets.</p>
-        <p><strong>Varieties:</strong> Bird's Eye, Habanero</p>
-        <p><strong>Scoville:</strong> 50,000-350,000 SHU</p>
-      </div>
-      
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1594282486555-1a6c8e3590e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="French Beans">
-        <h3>French Beans</h3>
-        <p>Tender, crisp beans meeting strict EU export standards. Grown with minimal pesticide use.</p>
-        <p><strong>Varieties:</strong> Samantha, Paulista</p>
-        <p><strong>Length:</strong> 12-15cm</p>
-      </div>
-      
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1594282486555-1a6c8e3590e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Tomatoes">
-        <h3>Tomatoes</h3>
-        <p>Firm, flavorful tomatoes for both fresh market and processing. Grown in our hydroponic systems.</p>
-        <p><strong>Varieties:</strong> Anna F1, Tylka F1</p>
-        <p><strong>Brix:</strong> 5.5-6.5%</p>
-      </div>
-      
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Onions">
-        <h3>Onions</h3>
-        <p>Sweet, pungent onions with excellent shelf life. Ideal for Middle Eastern and European markets.</p>
-        <p><strong>Varieties:</strong> Red Creole, Bombay Red</p>
-        <p><strong>Size:</strong> 50-70mm diameter</p>
-      </div>
-      
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1597362925123-77861d3fbac7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Snow Peas">
-        <h3>Snow Peas</h3>
-        <p>Sweet, flat-podded peas with tender edible pods. Quick-growing and high-yielding.</p>
-        <p><strong>Varieties:</strong> Oregon Sugar Pod, Mammoth Melting</p>
-        <p><strong>Pod Length:</strong> 7-10cm</p>
+      <div class="row g-4">
+        <!-- NEW: Product card with export details -->
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100 position-relative">
+            <span class="product-badge">EU Approved</span>
+            <img src="images/product-strawberries.jpg" class="card-img-top" alt="Kenyan Strawberries" loading="lazy" width="400" height="300">
+            <div class="card-body">
+              <h5 class="card-title">Strawberries</h5>
+              <p class="card-text">Grade AA Kenyan strawberries with 12% sugar content. Hand-picked and air-freighted within 24hrs.</p>
+            </div>
+            <div class="card-footer bg-transparent">
+              <small class="text-muted">MOQ: 500kg | Packaging: 5kg punnets</small>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100 position-relative">
+            <span class="product-badge">Hot!</span>
+            <img src="images/product-chilies.jpg" class="card-img-top" alt="Kenyan Chilies" loading="lazy" width="400" height="300">
+            <div class="card-body">
+              <h5 class="card-title">Chilies</h5>
+              <p class="card-text">Bird's Eye chilies with 50,000-100,000 SHU. Sun-dried or fresh export options available.</p>
+            </div>
+            <div class="card-footer bg-transparent">
+              <small class="text-muted">MOQ: 1 Ton | Packaging: 10kg cartons</small>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100 position-relative">
+            <span class="product-badge">Premium</span>
+            <img src="images/product-frenchbeans.jpg" class="card-img-top" alt="French Beans" loading="lazy" width="400" height="300">
+            <div class="card-body">
+              <h5 class="card-title">French Beans</h5>
+              <p class="card-text">Extra fine beans (6-9mm diameter). Harvested daily to ensure maximum freshness.</p>
+            </div>
+            <div class="card-footer bg-transparent">
+              <small class="text-muted">MOQ: 800kg | Packaging: 4kg bags</small>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Rest of your existing sections (Marketplace, Finance, Contact) -->
+  <!-- NEW: Export Process Section -->
+  <section id="process" class="py-5 bg-white">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2>Our Export Process</h2>
+        <p class="text-muted">From our farm to your market</p>
+      </div>
+      
+      <div class="row g-4 text-center">
+        <div class="col-md-3">
+          <div class="p-3 border rounded">
+            <i class="fas fa-seedling fs-1 text-success mb-3"></i>
+            <h5>1. Sustainable Farming</h5>
+            <p class="small">Drip irrigation & organic practices</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="p-3 border rounded">
+            <i class="fas fa-check-circle fs-1 text-success mb-3"></i>
+            <h5>2. Quality Control</h5>
+            <p class="small">KEBS-certified grading</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="p-3 border rounded">
+            <i class="fas fa-plane fs-1 text-success mb-3"></i>
+            <h5>3. Fast Logistics</h5>
+            <p class="small">Air freight within 48hrs</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="p-3 border rounded">
+            <i class="fas fa-flag fs-1 text-success mb-3"></i>
+            <h5>4. Global Delivery</h5>
+            <p class="small">Customs clearance support</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <a href="https://wa.me/254713420135" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+  <!-- Contact Section -->
+  <section id="contact" class="py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mb-4">
+          <h2 class="mb-4">Contact Our Export Team</h2>
+          <div class="d-flex align-items-start mb-3">
+            <i class="fas fa-phone-alt text-success me-3 mt-1"></i>
+            <div>
+              <h5 class="mb-1">Call/WhatsApp</h5>
+              <a href="https://wa.me/254712345678" class="text-decoration-none">+254 712 345 678</a>
+            </div>
+          </div>
+          <div class="d-flex align-items-start mb-3">
+            <i class="fas fa-envelope text-success me-3 mt-1"></i>
+            <div>
+              <h5 class="mb-1">Email</h5>
+              <a href="mailto:exports@publicchoiceinvestment.co.ke" class="text-decoration-none">exports@publicchoiceinvestment.co.ke</a>
+            </div>
+          </div>
+          <div class="d-flex align-items-start">
+            <i class="fas fa-map-marker-alt text-success me-3 mt-1"></i>
+            <div>
+              <h5 class="mb-1">Farm Location</h5>
+              <p class="mb-0">Rumuruti, Laikipia County, Kenya</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6">
+          <h3 class="mb-4">Request Quote</h3>
+          <!-- NEW: Formspree form with export-specific fields -->
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="row g-3">
+            <div class="col-md-6">
+              <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="col-md-6">
+              <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+            </div>
+            <div class="col-12">
+              <input type="text" name="company" class="form-control" placeholder="Company Name" required>
+            </div>
+            <div class="col-12">
+              <select name="product" class="form-select" required>
+                <option value="">Select Product</option>
+                <option value="strawberries">Strawberries</option>
+                <option value="chilies">Chilies</option>
+                <option value="french_beans">French Beans</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <textarea name="message" class="form-control" rows="4" placeholder="Your requirements (MOQ, packaging, etc.)" required></textarea>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-success px-4">Send Request</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <footer class="py-4 bg-dark text-white">
+    <div class="container text-center">
+      <p class="mb-0">© 2024 Public Choice Investment. All rights reserved.</p>
+      <p class="small mb-0">KEBS Certified Exporter • HACCP Compliant</p>
+    </div>
+  </footer>
+
+  <!-- NEW: Optimized JS loading -->
   <script>
-    // Simple hero image slider
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.hero-slide');
-    
-    function showSlide(n) {
-      slides.forEach(slide => slide.classList.remove('active'));
-      currentSlide = (n + slides.length) % slides.length;
-      slides[currentSlide].classList.add('active');
-    }
-    
-    function nextSlide() {
-      showSlide(currentSlide + 1);
-    }
-    
-    // Change slide every 5 seconds
-    setInterval(nextSlide, 5000);
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      
+      if (toggle && navLinks) {
+        toggle.addEventListener('click', () => {
+          const expanded = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', !expanded);
+          navLinks.classList.toggle('active');
+        });
+      }
+      
+      // Simple image slider
+      const slides = document.querySelectorAll('.hero-slide');
+      let current = 0;
+      
+      if (slides.length > 0) {
+        slides[current].classList.add('active');
+        setInterval(() => {
+          slides[current].classList.remove('active');
+          current = (current + 1) % slides.length;
+          slides[current].classList.add('active');
+        }, 5000);
+      }
+    });
+  </script>
+  
+  <!-- NEW: Deferred Bootstrap JS -->
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- NEW: Simple analytics (optional) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/umami-js@1.0.3"></script>
+  <script defer>
+    window.umami = window.umami || function(){(window.umami.q=window.umami.q||[]).push(arguments)};
+    umami('YOUR_UMAMI_ID');
   </script>
 </body>
 </html>
