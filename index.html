@@ -3,341 +3,261 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- NEW: Kenya-focused SEO title -->
-  <title>Public Choice Investment | Leading Kenyan Exporter of Strawberries & Chilies | Laikipia</title>
-  <!-- NEW: Enhanced meta description -->
-  <meta name="description" content="KEBS-certified exporter of premium strawberries, chilies and French beans from Rumuruti, Kenya. EU-compliant packaging, bulk orders worldwide.">
-  
-  <!-- NEW: OpenGraph tags for social sharing -->
-  <meta property="og:title" content="Public Choice Investment - Premium Kenyan Farm Exports">
-  <meta property="og:description" content="Certified exporter of Kenyan strawberries, chilies and French beans. Direct farm-to-global-market supply.">
-  <meta property="og:image" content="https://publicchoiceinvestment.co.ke/images/og-image.jpg">
-  <meta property="og:url" content="https://publicchoiceinvestment.co.ke">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <!-- NEW: Preload critical resources only -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" as="style">
-  <link rel="preload" href="styles.css" as="style">
-  
-  <!-- NEW: Simplified CSS imports -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-
-  <!-- NEW: Critical CSS inlined -->
+  <title>Public Choice Investment</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    /* Critical above-the-fold styles */
-    header { position: relative; z-index: 1000; }
-    .hero-slide { 
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      transition: opacity 1s ease-in-out;
-    }
-    .hero-slide.active { display: block; }
-    
-    /* NEW: Trust badges styling */
-    .trust-badges img {
-      height: 50px;
-      width: auto;
-      margin: 0 10px;
-    }
-    
-    /* NEW: Export-specific product tags */
-    .product-badge {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #28a745;
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background-color: #ff0000; color: white; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+    header img { height: 60px; }
+    nav a {
       color: white;
-      padding: 3px 8px;
-      border-radius: 3px;
-      font-size: 0.8rem;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
     }
-    
-    /* NEW: Mobile optimizations */
-    @media (max-width: 768px) {
-      #hero { height: 70vh !important; }
-      .display-4 { font-size: 2.2rem; }
-      .btn { min-width: 120px; padding: 12px; }
+    nav a:hover {
+      text-decoration: underline;
+      color: #0000ff;
+    }
+    section { padding: 2rem; }
+    footer {
+      background: #2ecc71;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .product-card, .finance-card {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      background: #fff;
+    }
+    .chatbox-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      max-height: 400px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 1000;
+    }
+    .chatbox-header {
+      background: #ff0000;
+      color: white;
+      padding: 0.5rem;
+      font-weight: bold;
+      text-align: center;
+    }
+    .chatbox-messages {
+      flex: 1;
+      padding: 0.5rem;
+      overflow-y: auto;
+    }
+    .chatbox-input {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+    .chatbox-input input {
+      flex: 1;
+      padding: 0.5rem;
+      border: none;
+    }
+    .chatbox-input button {
+      background: #ff0000;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+    .chatbox-input button:hover {
+      background: #c0392b;
+    }
+    .whatsapp-button {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 50px;
+      font-size: 16px;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 1001;
+      display: flex;
+      align-items: center;
+    }
+    .whatsapp-button:hover {
+      background-color: #1ebe5b;
+    }
+    .whatsapp-button i {
+      margin-right: 8px;
+    }
+    .hero-image {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      border-bottom: 4px solid #ff0000;
     }
   </style>
-
-  <!-- NEW: Local business schema markup -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "AgriculturalBusiness",
-    "name": "Public Choice Investment",
-    "image": "https://publicchoiceinvestment.co.ke/images/logo.jpg",
-    "@id": "https://publicchoiceinvestment.co.ke",
-    "url": "https://publicchoiceinvestment.co.ke",
-    "telephone": "+254712345678",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Rumuruti",
-      "addressLocality": "Laikipia",
-      "addressRegion": "Kenya",
-      "postalCode": "00618",
-      "addressCountry": "KE"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "0.266667",
-      "longitude": "36.533333"
-    }
-  }
-  </script>
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <header class="d-flex justify-content-between align-items-center p-3 bg-light shadow-sm position-sticky top-0">
-    <h1 class="fs-4 m-0">Public Choice Investment</h1>
-    <!-- NEW: Accessible mobile menu -->
-    <button class="menu-toggle d-md-none" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-    <nav class="nav-links d-flex gap-3">
-      <a href="#hero" class="text-dark text-decoration-none">Home</a>
-      <a href="#about" class="text-dark text-decoration-none">About</a>
-      <a href="#products" class="text-dark text-decoration-none">Products</a>
-      <a href="#contact" class="text-dark text-decoration-none">Contact</a>
-      <!-- NEW: Language switcher placeholder -->
-      <div class="language-switcher ms-3">
-        <a href="#" class="small">EN</a> | <a href="#" class="small">FR</a>
-      </div>
+  <header>
+    <img src="/mnt/data/logo pci jpg.jpg" alt="Public Choice Investment Logo">
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#products">Products</a>
+      <a href="#marketplace">Marketplace</a>
+      <a href="#finance">Financing</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact Us</a>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section id="hero" class="position-relative" style="height: 90vh; overflow: hidden;">
-    <div class="hero-slide active" style="background-image: url('images/hero-strawberries.jpg');"></div>
-    <div class="hero-slide" style="background-image: url('images/hero-chilies.jpg');"></div>
-    <div class="hero-slide" style="background-image: url('images/hero-farm.jpg');"></div>
-    
-    <div class="position-absolute top-50 start-50 translate-middle text-center text-white px-3">
-      <h1 class="display-4 fw-bold mb-3">Premium Kenyan Farm Exports</h1>
-      <p class="lead mb-4">KEBS-Certified • EU-Compliant Packaging • Direct from Laikipia</p>
-      
-      <!-- NEW: Trust badges -->
-      <div class="trust-badges d-flex justify-content-center flex-wrap">
-        <img src="images/kebs-logo.png" alt="KEBS Certified" loading="lazy">
-        <img src="images/globalgap.png" alt="GlobalGAP Certified" loading="lazy">
+  <img src="/mnt/data/IMG_1843.jpg" alt="Farm Image" class="hero-image">
+
+  <section id="home">
+    <h2>Welcome to Public Choice Investment</h2>
+    <p>Your trusted partner in agricultural exports from Kenya.</p>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p><strong>Motto:</strong> Empowering Farmers, Feeding the World.</p>
+    <p><strong>Vision:</strong> To be the leading hub for quality agricultural exports in Africa, bridging the gap between farmers and global markets through innovation, integrity, and sustainability.</p>
+    <p>We are a Kenyan-based agribusiness focused on exporting high-quality fresh produce to international markets. Our mission is to empower farmers and deliver excellence.</p>
+  </section>
+
+  <section id="products">
+    <h2>Our Products</h2>
+    <ul>
+      <li>Chillies</li>
+      <li>Strawberries</li>
+      <li>French Beans</li>
+      <li>Snow Peas</li>
+      <li>Tomatoes</li>
+    </ul>
+  </section>
+
+  <section id="marketplace">
+    <h2>Marketplace</h2>
+    <p>Explore our top export-quality products available for order:</p>
+    <div class="product-grid">
+      <div class="product-card">
+        <h3>Red Chillies</h3>
+        <p>Fresh, export-grade red chillies ideal for spice markets.</p>
+        <p><strong>Price:</strong> $2.50/kg</p>
       </div>
-      
-      <div class="d-flex gap-3 justify-content-center mt-4">
-        <a href="#products" class="btn btn-success px-4 py-2">View Products</a>
-        <a href="#contact" class="btn btn-outline-light px-4 py-2">Contact Us</a>
+      <div class="product-card">
+        <h3>Strawberries</h3>
+        <p>Sweet and juicy strawberries, carefully handpicked.</p>
+        <p><strong>Price:</strong> $3.00/kg</p>
+      </div>
+      <div class="product-card">
+        <h3>French Beans</h3>
+        <p>Crisp and tender green beans, perfect for global markets.</p>
+        <p><strong>Price:</strong> $2.20/kg</p>
+      </div>
+      <div class="product-card">
+        <h3>Snow Peas</h3>
+        <p>Fresh snow peas, rich in flavor and nutrition.</p>
+        <p><strong>Price:</strong> $2.80/kg</p>
+      </div>
+      <div class="product-card">
+        <h3>Tomatoes</h3>
+        <p>Firm, ripe tomatoes suited for cooking and fresh use.</p>
+        <p><strong>Price:</strong> $1.90/kg</p>
       </div>
     </div>
   </section>
 
-  <!-- Product Showcase Section -->
-  <section id="products" class="py-5 bg-light">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2>Our Export Products</h2>
-        <p class="text-muted">Farm-fresh produce meeting international standards</p>
+  <section id="finance">
+    <h2>Agricultural Financing & Export Support</h2>
+    <p>We offer tailored financial solutions in partnership with leading institutions to support your agribusiness growth:</p>
+    <div class="product-grid">
+      <div class="finance-card">
+        <h3>KCB MobiGrow</h3>
+        <p>Access mobile-based loans and savings products for smallholder farmers through the KCB MobiGrow platform.</p>
+        <p><strong>Partner:</strong> KCB Bank</p>
       </div>
-      
-      <div class="row g-4">
-        <!-- NEW: Product card with export details -->
-        <div class="col-md-4">
-          <div class="card shadow-sm h-100 position-relative">
-            <span class="product-badge">EU Approved</span>
-            <img src="images/product-strawberries.jpg" class="card-img-top" alt="Kenyan Strawberries" loading="lazy" width="400" height="300">
-            <div class="card-body">
-              <h5 class="card-title">Strawberries</h5>
-              <p class="card-text">Grade AA Kenyan strawberries with 12% sugar content. Hand-picked and air-freighted within 24hrs.</p>
-            </div>
-            <div class="card-footer bg-transparent">
-              <small class="text-muted">MOQ: 500kg | Packaging: 5kg punnets</small>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-md-4">
-          <div class="card shadow-sm h-100 position-relative">
-            <span class="product-badge">Hot!</span>
-            <img src="images/product-chilies.jpg" class="card-img-top" alt="Kenyan Chilies" loading="lazy" width="400" height="300">
-            <div class="card-body">
-              <h5 class="card-title">Chilies</h5>
-              <p class="card-text">Bird's Eye chilies with 50,000-100,000 SHU. Sun-dried or fresh export options available.</p>
-            </div>
-            <div class="card-footer bg-transparent">
-              <small class="text-muted">MOQ: 1 Ton | Packaging: 10kg cartons</small>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-md-4">
-          <div class="card shadow-sm h-100 position-relative">
-            <span class="product-badge">Premium</span>
-            <img src="images/product-frenchbeans.jpg" class="card-img-top" alt="French Beans" loading="lazy" width="400" height="300">
-            <div class="card-body">
-              <h5 class="card-title">French Beans</h5>
-              <p class="card-text">Extra fine beans (6-9mm diameter). Harvested daily to ensure maximum freshness.</p>
-            </div>
-            <div class="card-footer bg-transparent">
-              <small class="text-muted">MOQ: 800kg | Packaging: 4kg bags</small>
-            </div>
-          </div>
-        </div>
+      <div class="finance-card">
+        <h3>AFC Agricultural Loans</h3>
+        <p>Affordable loans for purchasing farm inputs, machinery, and expansion capital. Provided by Agricultural Finance Corporation.</p>
+        <p><strong>Partner:</strong> AFC Kenya</p>
+      </div>
+      <div class="finance-card">
+        <h3>AgriExport Advance Program</h3>
+        <p>Receive advance payments for confirmed export orders to boost your cash flow before shipment.</p>
+        <p><strong>Partner:</strong> Public Choice Finance Desk</p>
       </div>
     </div>
   </section>
 
-  <!-- NEW: Export Process Section -->
-  <section id="process" class="py-5 bg-white">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2>Our Export Process</h2>
-        <p class="text-muted">From our farm to your market</p>
-      </div>
-      
-      <div class="row g-4 text-center">
-        <div class="col-md-3">
-          <div class="p-3 border rounded">
-            <i class="fas fa-seedling fs-1 text-success mb-3"></i>
-            <h5>1. Sustainable Farming</h5>
-            <p class="small">Drip irrigation & organic practices</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="p-3 border rounded">
-            <i class="fas fa-check-circle fs-1 text-success mb-3"></i>
-            <h5>2. Quality Control</h5>
-            <p class="small">KEBS-certified grading</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="p-3 border rounded">
-            <i class="fas fa-plane fs-1 text-success mb-3"></i>
-            <h5>3. Fast Logistics</h5>
-            <p class="small">Air freight within 48hrs</p>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="p-3 border rounded">
-            <i class="fas fa-flag fs-1 text-success mb-3"></i>
-            <h5>4. Global Delivery</h5>
-            <p class="small">Customs clearance support</p>
-          </div>
-        </div>
-      </div>
-    </div>
+  <section id="blog">
+    <h2>Blog</h2>
+    <p>Coming soon: Expert insights and news from the world of agriculture and export business.</p>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-5 bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 mb-4">
-          <h2 class="mb-4">Contact Our Export Team</h2>
-          <div class="d-flex align-items-start mb-3">
-            <i class="fas fa-phone-alt text-success me-3 mt-1"></i>
-            <div>
-              <h5 class="mb-1">Call/WhatsApp</h5>
-              <a href="https://wa.me/254712345678" class="text-decoration-none">+254 712 345 678</a>
-            </div>
-          </div>
-          <div class="d-flex align-items-start mb-3">
-            <i class="fas fa-envelope text-success me-3 mt-1"></i>
-            <div>
-              <h5 class="mb-1">Email</h5>
-              <a href="mailto:exports@publicchoiceinvestment.co.ke" class="text-decoration-none">exports@publicchoiceinvestment.co.ke</a>
-            </div>
-          </div>
-          <div class="d-flex align-items-start">
-            <i class="fas fa-map-marker-alt text-success me-3 mt-1"></i>
-            <div>
-              <h5 class="mb-1">Farm Location</h5>
-              <p class="mb-0">Rumuruti, Laikipia County, Kenya</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-lg-6">
-          <h3 class="mb-4">Request Quote</h3>
-          <!-- NEW: Formspree form with export-specific fields -->
-          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="row g-3">
-            <div class="col-md-6">
-              <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-            </div>
-            <div class="col-md-6">
-              <input type="email" name="email" class="form-control" placeholder="Your Email" required>
-            </div>
-            <div class="col-12">
-              <input type="text" name="company" class="form-control" placeholder="Company Name" required>
-            </div>
-            <div class="col-12">
-              <select name="product" class="form-select" required>
-                <option value="">Select Product</option>
-                <option value="strawberries">Strawberries</option>
-                <option value="chilies">Chilies</option>
-                <option value="french_beans">French Beans</option>
-              </select>
-            </div>
-            <div class="col-12">
-              <textarea name="message" class="form-control" rows="4" placeholder="Your requirements (MOQ, packaging, etc.)" required></textarea>
-            </div>
-            <div class="col-12">
-              <button type="submit" class="btn btn-success px-4">Send Request</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Company:</strong> Public Choice Investment</p>
+    <p><strong>Email:</strong> <a href="mailto:info@publicchoiceinvestment.co.ke">info@publicchoiceinvestment.co.ke</a></p>
+    <p><strong>Phone:</strong> 0713420135 / 0726269948 (Francis Gachau - Sales Manager), 0757130730 (Rafael - Farm Manager)</p>
+    <p><strong>Location:</strong> Nairobi, Kenya</p>
   </section>
 
-  <footer class="py-4 bg-dark text-white">
-    <div class="container text-center">
-      <p class="mb-0">© 2024 Public Choice Investment. All rights reserved.</p>
-      <p class="small mb-0">KEBS Certified Exporter • HACCP Compliant</p>
-    </div>
+  <footer>
+    <p>&copy; 2025 Public Choice Investment. All rights reserved.</p>
+    <p>Licensed under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>. Code hosted on <a href="https://github.com">GitHub</a>.</p>
+    <p>
+      <a href="#home">Home</a> |
+      <a href="#about">About Us</a> |
+      <a href="#products">Products</a> |
+      <a href="#marketplace">Marketplace</a> |
+      <a href="#finance">Financing</a> |
+      <a href="#blog">Blog</a> |
+      <a href="#contact">Contact</a>
+    </p>
   </footer>
 
-  <!-- NEW: Optimized JS loading -->
+  <a href="https://wa.me/254713420135" class="whatsapp-button" target="_blank">
+    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+  </a>
+
+  <div class="chatbox-container">
+    <div class="chatbox-header">Live Chat</div>
+    <div class="chatbox-messages" id="chatbox-messages"></div>
+    <div class="chatbox-input">
+      <input type="text" id="chatbox-input" placeholder="Type your message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
   <script>
-    // Mobile menu toggle
-    document.addEventListener('DOMContentLoaded', () => {
-      const toggle = document.querySelector('.menu-toggle');
-      const navLinks = document.querySelector('.nav-links');
-      
-      if (toggle && navLinks) {
-        toggle.addEventListener('click', () => {
-          const expanded = toggle.getAttribute('aria-expanded') === 'true';
-          toggle.setAttribute('aria-expanded', !expanded);
-          navLinks.classList.toggle('active');
-        });
+    function sendMessage() {
+      const input = document.getElementById('chatbox-input');
+      const messages = document.getElementById('chatbox-messages');
+      if (input.value.trim() !== '') {
+        const msg = document.createElement('div');
+        msg.textContent = input.value;
+        messages.appendChild(msg);
+        input.value = '';
+        messages.scrollTop = messages.scrollHeight;
       }
-      
-      // Simple image slider
-      const slides = document.querySelectorAll('.hero-slide');
-      let current = 0;
-      
-      if (slides.length > 0) {
-        slides[current].classList.add('active');
-        setInterval(() => {
-          slides[current].classList.remove('active');
-          current = (current + 1) % slides.length;
-          slides[current].classList.add('active');
-        }, 5000);
-      }
-    });
-  </script>
-  
-  <!-- NEW: Deferred Bootstrap JS -->
-  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <!-- NEW: Simple analytics (optional) -->
-  <script defer src="https://cdn.jsdelivr.net/npm/umami-js@1.0.3"></script>
-  <script defer>
-    window.umami = window.umami || function(){(window.umami.q=window.umami.q||[]).push(arguments)};
-    umami('YOUR_UMAMI_ID');
+    }
   </script>
 </body>
 </html>
