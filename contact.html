@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Public Choice Investment</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body { font-family: Arial, sans-serif; }
+    .navbar-brand img { height: 50px; }
+    .nav-link { color: white !important; font-weight: bold; }
+    .nav-link:hover { color: #0000ff !important; }
+    .form-section { padding: 3rem 0; background-color: #f5f5f5; }
+    .form-section h2 { color: #c0392b; margin-bottom: 1.5rem; }
+    .form-control, .btn { border-radius: 0; }
+    .social-icons a { color: #c0392b; font-size: 1.5rem; margin-right: 1rem; }
+    footer { background: #2ecc71; color: white; text-align: center; padding: 1rem; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><img src="logo.jpg" alt="Logo"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="form-section">
+  <div class="container">
+    <h2 class="text-center">Contact & Registration</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <form id="contact-form" method="POST">
+          <div class="mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="tel" class="form-control" id="phone" name="phone" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+          </div>
+          <button type="submit" class="btn btn-danger w-100">Create Account</button>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <p><strong>Email:</strong> info@publicchoiceinvestment.co.ke</p>
+        <p><strong>Phone:</strong> +254 712 345678</p>
+        <p><strong>Location:</strong> Rumuruti, Laikipia County, Kenya</p>
+        <div class="social-icons mt-3">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="mt-3">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1994.9350634224784!2d36.480150168479285!3d0.2700026146456256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182aad01214b629d%3A0x55c655d8de1ed0f4!2sRumuruti%2C%20Kenya!5e0!3m2!1sen!2ske!4v1688988945723!5m2!1sen!2ske" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Public Choice Investment. All rights reserved.</p>
+  <div>
+    <a class="nav-link d-inline" href="index.html">Home</a> |
+    <a class="nav-link d-inline" href="about.html">About Us</a> |
+    <a class="nav-link d-inline" href="products.html">Products</a> |
+    <a class="nav-link d-inline" href="blog.html">Blog</a> |
+    <a class="nav-link d-inline" href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwasZ3J1Q89UOBz_ram-neHBm8AKtLECByz5yae4NVZj8cAqoTCbcJ7s44EWsEVUEca/exec';
+  const form = document.getElementById('contact-form');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    fetch(scriptURL, {
+      method: 'POST',
+      body: new FormData(form)
+    })
+    .then(response => alert('✅ Registration successful! Welcome to PCI AgroExport.'))
+    .catch(error => alert('❌ There was an error! Please try again later.'));
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
