@@ -1,62 +1,109 @@
+<!-- signup.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sign Up - PCI</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - Public Choice Investment</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
-<body class="bg-light">
+<body>
   <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-6 bg-white p-4 shadow-sm rounded">
-        <h3 class="text-center mb-4">Create Your Account</h3>
-        <form method="POST" id="signup-form">
-          <div class="mb-3">
-            <label for="name" class="form-label">Full Name</label>
-            <input type="text" name="name" class="form-control" required />
-          </div>
-          <div class="mb-3">
-            <label for="phone" class="form-label">Phone Number</label>
-            <input type="tel" name="phone" class="form-control" required />
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email address</label>
-            <input type="email" name="email" class="form-control" required />
-          </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" name="password" class="form-control" required />
-          </div>
-          <button type="submit" class="btn btn-danger w-100">Sign Up</button>
-        </form>
-        <div id="response" class="text-center mt-3"></div>
-        <div class="text-center mt-3">
-          Already have an account? <a href="login.html">Login</a>
-        </div>
+    <h2 class="text-center">Sign Up</h2>
+    <form action="https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec" method="POST" class="mt-4">
+      <div class="mb-3">
+        <label for="name" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="name" name="name" required />
       </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" required />
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" id="phone" name="phone" required />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" required />
+      </div>
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+  </div>
+</body>
+</html>
+
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Public Choice Investment</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container mt-5">
+    <h2 class="text-center">Login</h2>
+    <form method="POST" action="#" class="mt-4">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" required />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" required />
+      </div>
+      <button type="submit" class="btn btn-success">Login</button>
+    </form>
+    <div class="text-center mt-3">
+      <a href="reset.html">Forgot your password?</a>
     </div>
   </div>
+</body>
+</html>
 
-  <script>
-    const scriptURL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec'; // Replace with yours
-    const form = document.getElementById('signup-form');
-    const response = document.getElementById('response');
+<!-- reset.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reset Password - Public Choice Investment</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container mt-5">
+    <h2 class="text-center">Reset Password</h2>
+    <form method="POST" action="#" class="mt-4">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" required />
+      </div>
+      <button type="submit" class="btn btn-warning">Send Reset Link</button>
+    </form>
+  </div>
+</body>
+</html>
 
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-        .then(res => {
-          response.innerHTML = '<div class="alert alert-success">✅ Signup successful!</div>';
-          form.reset();
-          setTimeout(() => {
-            window.location.href = 'dashboard.html';
-          }, 2000);
-        })
-        .catch(err => {
-          response.innerHTML = '<div class="alert alert-danger">❌ Signup failed. Try again.</div>';
-        });
-    });
-  </script>
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Public Choice Investment</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-success">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">PCI Dashboard</a>
+    </div>
+  </nav>
+  <div class="container mt-5">
+    <h3>Welcome to your Dashboard</h3>
+    <p>This is a secure page. Customize this section as needed to show user-specific data.</p>
+  </div>
 </body>
 </html>
